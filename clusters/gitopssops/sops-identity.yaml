@@ -5,8 +5,8 @@ metadata:
   name: sops-akv-decryptor
   namespace: flux-system
 spec:
-  clientID: de2846c8-452c-4640-861b-e9ff3fe2e73c
-  resourceID: /subscriptions/526be93c-8b93-4ca3-a34f-559d10cdcef4/resourcegroups/gitopssops/providers/Microsoft.ManagedIdentity/userAssignedIdentities/SopsDecryptorIdentity
+  clientID: c81a787d-3223-4997-b0c3-322f60716578
+  resourceID: /subscriptions/526be93c-8b93-4ca3-a34f-559d10cdcef4/resourcegroups/MC_gitopssops_gitopssops_southeastasia/providers/Microsoft.ManagedIdentity/userAssignedIdentities/gitopssops-agentpool
   type: 0 # user-managed identity
 ---
 apiVersion: aadpodidentity.k8s.io/v1
