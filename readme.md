@@ -175,3 +175,6 @@ EOF​
 
 SIGNED_IN_USER_OBJECT_ID=$(az ad signed-in-user show -o tsv --query objectId)
 az keyvault set-policy --name $KEY_VAULT_NAME --resource-group $RESOURCE_GROUP_NAME --object-id $SIGNED_IN_USER_OBJECT_ID --key-permissions encrypt decrypt
+
+
+ flux logs --kind=Kustomization --name=podinfo --namespace=default
