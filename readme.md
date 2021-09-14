@@ -138,9 +138,9 @@ CLIENT_ID=$(az identity show -n SopsDecryptorIdentity -g $RESOURCE_GROUP_NAME -o
 OBJECT_ID=$(az identity show -n SopsDecryptorIdentity -g $RESOURCE_GROUP_NAME -o tsv --query "principalId")
 RESOURCE_ID=$(az identity show -n SopsDecryptorIdentity -g $RESOURCE_GROUP_NAME -o tsv --query "id")
 
-export KEY_VAULT_NAME=vaultgitops3
+export KEY_VAULT_NAME=gitopsazurevault
 
-az keyvault create --name $KEY_VAULT_NAME --resource-group "gitops-demo" --location "southeastasia"
+az keyvault create --name $KEY_VAULT_NAME --resource-group $RESOURCE_GROUP_NAME --location $LOCATION
 
 az keyvault key create --name sops-key --vault-name $KEY_VAULT_NAME --protection software --ops encrypt decrypt
 
@@ -148,7 +148,7 @@ az keyvault set-policy --name $KEY_VAULT_NAME --resource-group $RESOURCE_GROUP_N
 
 az keyvault key show --name sops-key --vault-name $KEY_VAULT_NAME --query key.kid
 
-"https://vaultgitops3.vault.azure.net/keys/sops-key/3809539ab2504ecca7c1c6dfb671ff94"
+https://gitopsazurevault.vault.azure.net/keys/sops-key/a21fc6ba95c94600b268662bfde4c3e6
 
 cat > ./clusters/gitops/sops-identity.yaml <<EOF
 ---
