@@ -178,3 +178,7 @@ az keyvault set-policy --name $KEY_VAULT_NAME --resource-group $RESOURCE_GROUP_N
 
 
  flux logs --kind=Kustomization --name=demoapp-credentials --namespace=demoapp
+
+ flux logs --kind=Kustomization --name=demoapp --namespace=flux-system
+
+ kubectl describe secret -n demoapp demoapp-credentials
